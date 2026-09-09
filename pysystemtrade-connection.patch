@@ -1,0 +1,45 @@
+diff --git a/sysbrokers/IB/ib_connection.py b/sysbrokers/IB/ib_connection.py
+index 9152960..71df31d 100644
+--- a/sysbrokers/IB/ib_connection.py
++++ b/sysbrokers/IB/ib_connection.py
+@@ -5,7 +5,9 @@ IB connection using ib_async https://github.com/ib-api-reloaded/ib_async
+ 
+ import time
+ 
+-from ib_async import IB
++from sysbrokers.IB.paper_guard import (
++    ReadOnlyPaperIB, validate_paper_config, verify_managed_account,
++)
+ 
+ from sysbrokers.IB.ib_connection_defaults import ib_defaults
+ from syscore.exceptions import missingData
+@@ -77,20 +79,16 @@ class connectionIB(object):
+     def _init_connection(
+         self, ipaddress: str, port: int, client_id: int, account=arg_not_supplied
+     ):
+-        ib = IB()
+-
++        if account is arg_not_supplied:
++            account = get_broker_account()
++        validate_paper_config(get_production_config(), ipaddress, port, account)
++        ib = ReadOnlyPaperIB()
+         try:
+-            if account is arg_not_supplied:
+-                ## not passed get from config
+-                account = get_broker_account()
+-        except missingData:
+-            self.log.error(
+-                "Broker account ID not found in private config - may cause issues"
+-            )
+-            ib.connect(ipaddress, port, clientId=client_id)
+-        else:
+-            ## connect using account
+-            ib.connect(ipaddress, port, clientId=client_id, account=account)
++            ib.connect(ipaddress, port, clientId=client_id, account=account, readonly=True)
++            verify_managed_account(ib, account)
++        except BaseException:
++            ib.disconnect()
++            raise
+ 
+         # Sometimes takes a few seconds to resolve... only have to do this once per process so no biggie
+         time.sleep(5)

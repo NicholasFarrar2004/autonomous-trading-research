@@ -1,0 +1,91 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 9a1c3a1..3a55498 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,6 +4,12 @@ All notable user-facing changes will be documented in this file.
+ 
+ ## Unreleased
+ 
++- The offline fake-live terminal-stop path now refreshes its fill history after a
++  synchronous closing fill before computing final stop metrics, keeping realized
++  losses aligned with the updated balance. The unchanged terminal scenario is
++  covered by a real-extension regression test; the restart fixture now expects
++  its reconciled 7.5% stop-event drawdown rather than the stale zero value.
++
+ - KuCoin partial closes now contribute realized losses to auto-unstuck and other PnL
+   risk inputs before the whole position closes. Existing trade-derived closes mislabeled
+   as authoritative are automatically backed up and reconstructed on cache load; the
+diff --git a/scenarios/fake_live/hsl_long_red_restart.hjson b/scenarios/fake_live/hsl_long_red_restart.hjson
+index c7a55f0..d57bb98 100644
+--- a/scenarios/fake_live/hsl_long_red_restart.hjson
++++ b/scenarios/fake_live/hsl_long_red_restart.hjson
+@@ -92,8 +92,8 @@
+       long.halted: false
+       long.no_restart_latched: false
+       long.last_stop_event.auto_restart_eligible: true
+-      // Zero exchange fees leave no fallback-fee residual in the finalized flat snapshot.
+-      long.last_stop_event.drawdown_raw: 0.0
++      // The saved stop event includes the reconciled 15 loss on 200 episode equity.
++      long.last_stop_event.drawdown_raw: {approx: 0.075, tolerance: 1e-12}
+     }
+     summary_paths: {
+       step_count: 4
+diff --git a/src/tools/run_fake_live.py b/src/tools/run_fake_live.py
+index 6ee618d..a7b88db 100644
+--- a/src/tools/run_fake_live.py
++++ b/src/tools/run_fake_live.py
+@@ -585,6 +585,10 @@ async def _finalize_fake_terminal_red_if_sync_flat(
+         prepared_balance = bot._prepare_balance_snapshot(balance_raw)
+         if prepared_balance is not None:
+             bot._commit_balance_snapshot(prepared_balance)
++        # The synchronous fake fill updates balance before the normal fill refresh.
++        # Reconcile the finite fake tape before mixing that balance with realized PnL.
++        if not await bot.update_pnls(source="fake_terminal_sync_confirmation", since_ms=0):
++            return False
+     except Exception as exc:
+         logging.debug("fake RED terminal sync confirmation skipped: %s", exc)
+         return False
+diff --git a/tests/test_run_fake_live.py b/tests/test_run_fake_live.py
+index 4b71f4d..11d24d1 100644
+--- a/tests/test_run_fake_live.py
++++ b/tests/test_run_fake_live.py
+@@ -1042,6 +1042,39 @@ async def test_hsl_replay_scenarios_run_end_to_end(
+         _cleanup_fake_user_state(user)
+ 
+ 
++@pytest.mark.asyncio
++@pytest.mark.fake_live
++async def test_documented_terminal_scenario_reconciles_closing_loss_unmodified(tmp_path):
++    import passivbot_rust as pbr
++
++    if getattr(pbr, "__is_stub__", False):
++        pytest.skip("requires real passivbot_rust extension")
++    user = f"fake_terminal_reconciled_{tmp_path.name}"
++    _cleanup_fake_user_state(user)
++    try:
++        args = argparse.Namespace(
++            config=str(REPO_ROOT / "configs" / "fake_live_hsl_btc.hjson"),
++            scenario=str(REPO_ROOT / "scenarios" / "fake_live" / "hsl_long_terminal_no_restart.hjson"),
++            user=user,
++            max_steps=None,
++            output_dir=str(tmp_path),
++            log_level=1,
++            snapshot_each_step=True,
++        )
++        assert await _async_main(args) == 0
++        run_dir = next(path for path in tmp_path.iterdir() if (path / "run_metadata.json").exists())
++        artifacts = _load_run_artifacts(run_dir)
++        assert artifacts["run_metadata"]["assertions_enforced"] is True
++        stop = artifacts["hsl_trace"]["long"]["last_stop_event"]
++        assert stop["realized_pnl_total"] == pytest.approx(-100.0)
++        assert stop["drawdown_raw"] == pytest.approx(1.0)
++        assert stop["no_restart_latched"] is True
++        assert artifacts["fake_exchange_state"]["open_orders"] == []
++        assert artifacts["positions"] == []
++    finally:
++        _cleanup_fake_user_state(user)
++
++
+ @pytest.mark.asyncio
+ @pytest.mark.fake_live
+ async def test_documented_hsl_restart_scenario_runs_unmodified(tmp_path, monkeypatch):

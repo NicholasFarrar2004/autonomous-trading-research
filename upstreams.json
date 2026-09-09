@@ -1,0 +1,14 @@
+{
+  "pysystemtrade": {
+    "url": "https://github.com/pst-group/pysystemtrade.git",
+    "commit": "b4a25e6e1e33a54a3ecfb45c0f6db5e2b60b84f8",
+    "license": "GPL-3.0",
+    "patch": "pysystemtrade-connection.patch"
+  },
+  "passivbot": {
+    "url": "https://github.com/enarjord/passivbot.git",
+    "commit": "f92b420aeeff8831f0dd1942c25289592812c062",
+    "license": "Unlicense",
+    "patch": "passivbot-offline.patch"
+  }
+}

@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+venv*/
+upstream/
+private/
+paper/
+data/
+*.parquet
+*.sqlite*
+*.log
+.env*
+*.key
+*.pem
+.DS_Store

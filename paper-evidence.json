@@ -1,0 +1,31 @@
+{
+  "evidence_type": "sanitized summary of actual broker PAPER simulation, not a synthetic demo and not live money",
+  "date": "2026-09-08",
+  "history_rows": 251,
+  "forecast": 6.758358092696901,
+  "uncapped_target": 0.7969887269187758,
+  "bounded_target": 1,
+  "instrument": "MESU6",
+  "entry_fill": 7682.25,
+  "cleanup_fill": 7682.0,
+  "quantity": 1,
+  "multiplier": 5,
+  "after_entry_position": 1,
+  "final_position": 0,
+  "final_open_orders": 0,
+  "restart_new_orders": 0,
+  "independent_final_positions": 0,
+  "independent_final_orders": 0,
+  "default_guard_verified": true,
+  "gateway_read_only_restored": true,
+  "gross_simulated_pnl_usd": -1.25,
+  "fees_usd": null,
+  "net_simulated_pnl_usd": null,
+  "quote_type": "delayed",
+  "profitability_evidence": false,
+  "limitations": [
+    "No raw broker data redistributed",
+    "Commission currency unavailable, not zero cost",
+    "No abrupt pending-send or Gateway-restart recovery proof"
+  ]
+}

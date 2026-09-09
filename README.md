@@ -4,7 +4,7 @@
 
 The frozen native EWMAC candidate lost **$4,720 modeled net** in the 2022–March2024 exploratory evaluation, with **$8,058 drawdown** on $50,000 simulated capital. Source-data and tradable-roll limitations remain unresolved. This is a negative research result, not live or paper performance. **Order execution remains disabled for this candidate.**
 
-[Read the evaluation and limitations](STRATEGY_VALIDATION.md) · [Frozen protocol](VALIDATION_PROTOCOL.md) · [Forward shadow/recovery workflow](FORWARD_RESEARCH.md)
+[Read the failure diagnosis and next research recommendation](FAILURE_DIAGNOSIS.md) · [Read the evaluation and limitations](STRATEGY_VALIDATION.md) · [Frozen protocol](VALIDATION_PROTOCOL.md) · [Forward shadow/recovery workflow](FORWARD_RESEARCH.md)
 
 
 An automated trading research and execution-validation system built around existing trading engines. The project evaluates public performance claims, tests failure handling offline, and integrates native strategy calculations with guarded IBKR paper execution.

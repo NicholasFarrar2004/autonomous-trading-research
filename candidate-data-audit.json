@@ -1,0 +1,237 @@
+{
+  "source": "bug-or-feature/pst-csv-data",
+  "commit": "ef27b05c5d3305834afc4579cef6d8945b6801eb",
+  "retrieved_at": "2026-09-09T14:35:02.744742+00:00",
+  "registered_native_config_sha256": "65ea1a3d9bffee5402b48255f48b7d36fe4423fb73038acbd8d51adbc453b2d4",
+  "files": {
+    "data/adjusted_prices_csv/CORN.csv": {
+      "rows": 15802,
+      "daily_valid_prices": 10835,
+      "first": "1982-09-22 00:00:00",
+      "last": "2025-09-23 19:00:00",
+      "age_calendar_days": 351,
+      "duplicate_timestamps": 0,
+      "ordered": true,
+      "missing_primary_rows": 0,
+      "infinite_numeric_cells": 0,
+      "max_valid_date_gap_days": 5,
+      "columns": [
+        "price"
+      ],
+      "sha256": "e68d765e3d4dbf09f08d36769a3397eea870447a47b002db08696d66e76e40cb"
+    },
+    "data/adjusted_prices_csv/SOFR.csv": {
+      "rows": 15826,
+      "daily_valid_prices": 9127,
+      "first": "1989-06-21 00:00:00",
+      "last": "2025-09-23 19:00:00",
+      "age_calendar_days": 351,
+      "duplicate_timestamps": 0,
+      "ordered": true,
+      "missing_primary_rows": 2,
+      "infinite_numeric_cells": 0,
+      "max_valid_date_gap_days": 4,
+      "columns": [
+        "price"
+      ],
+      "sha256": "f87091f85fdb697e799946f3f44e65c9aae0629c300d8d6d949f9929dec36dfd"
+    },
+    "data/adjusted_prices_csv/SP500_micro.csv": {
+      "rows": 24758,
+      "daily_valid_prices": 7020,
+      "first": "1997-12-15 06:00:00",
+      "last": "2025-09-23 19:00:00",
+      "age_calendar_days": 351,
+      "duplicate_timestamps": 0,
+      "ordered": true,
+      "missing_primary_rows": 304,
+      "infinite_numeric_cells": 0,
+      "max_valid_date_gap_days": 6,
+      "columns": [
+        "price"
+      ],
+      "sha256": "32ac893e7b20901c090ebe259c52f1218971727f1711b09ea1367a4a2fda070e"
+    },
+    "data/adjusted_prices_csv/US10.csv": {
+      "rows": 29590,
+      "daily_valid_prices": 10871,
+      "first": "1982-08-30 05:00:00",
+      "last": "2025-09-23 20:00:00",
+      "age_calendar_days": 351,
+      "duplicate_timestamps": 0,
+      "ordered": true,
+      "missing_primary_rows": 739,
+      "infinite_numeric_cells": 0,
+      "max_valid_date_gap_days": 4,
+      "columns": [
+        "price"
+      ],
+      "sha256": "717782207077a4848e248022c2fa920c260841dd55f6bea7bbeb9505241d4d7c"
+    },
+    "data/multiple_prices_csv/CORN.csv": {
+      "rows": 15802,
+      "daily_valid_prices": 10835,
+      "first": "1982-09-22 00:00:00",
+      "last": "2025-09-23 19:00:00",
+      "age_calendar_days": 351,
+      "duplicate_timestamps": 0,
+      "ordered": true,
+      "missing_primary_rows": 0,
+      "infinite_numeric_cells": 0,
+      "max_valid_date_gap_days": 5,
+      "columns": [
+        "CARRY",
+        "CARRY_CONTRACT",
+        "PRICE",
+        "PRICE_CONTRACT",
+        "FORWARD",
+        "FORWARD_CONTRACT"
+      ],
+      "sha256": "535e78aa59a522064c7fe58037ef4e9b0918b12d4deeabdc50e53d91b09d5c14",
+      "missing_contract_rows": 0,
+      "forward_and_contract_columns_present": true
+    },
+    "data/multiple_prices_csv/SOFR.csv": {
+      "rows": 15826,
+      "daily_valid_prices": 9127,
+      "first": "1989-06-21 00:00:00",
+      "last": "2025-09-23 19:00:00",
+      "age_calendar_days": 351,
+      "duplicate_timestamps": 0,
+      "ordered": true,
+      "missing_primary_rows": 2,
+      "infinite_numeric_cells": 0,
+      "max_valid_date_gap_days": 4,
+      "columns": [
+        "CARRY",
+        "CARRY_CONTRACT",
+        "PRICE",
+        "PRICE_CONTRACT",
+        "FORWARD",
+        "FORWARD_CONTRACT"
+      ],
+      "sha256": "86a1e0b8e26cd2a11138f98a7b12f6d0d1a83b5f232fa2588bd19ea161f95672",
+      "missing_contract_rows": 0,
+      "forward_and_contract_columns_present": true
+    },
+    "data/multiple_prices_csv/SP500_micro.csv": {
+      "rows": 24758,
+      "daily_valid_prices": 7020,
+      "first": "1997-12-15 06:00:00",
+      "last": "2025-09-23 19:00:00",
+      "age_calendar_days": 351,
+      "duplicate_timestamps": 0,
+      "ordered": true,
+      "missing_primary_rows": 304,
+      "infinite_numeric_cells": 0,
+      "max_valid_date_gap_days": 6,
+      "columns": [
+        "CARRY",
+        "CARRY_CONTRACT",
+        "PRICE",
+        "PRICE_CONTRACT",
+        "FORWARD",
+        "FORWARD_CONTRACT"
+      ],
+      "sha256": "6094bc080070d1d0277b9917bea40e03a0fc767f3101b9a70d7d010ea2776ff5",
+      "missing_contract_rows": 0,
+      "forward_and_contract_columns_present": true
+    },
+    "data/multiple_prices_csv/US10.csv": {
+      "rows": 29590,
+      "daily_valid_prices": 10871,
+      "first": "1982-08-30 05:00:00",
+      "last": "2025-09-23 20:00:00",
+      "age_calendar_days": 351,
+      "duplicate_timestamps": 0,
+      "ordered": true,
+      "missing_primary_rows": 739,
+      "infinite_numeric_cells": 0,
+      "max_valid_date_gap_days": 4,
+      "columns": [
+        "CARRY",
+        "CARRY_CONTRACT",
+        "PRICE",
+        "PRICE_CONTRACT",
+        "FORWARD",
+        "FORWARD_CONTRACT"
+      ],
+      "sha256": "44a7bb27550918da69937300c61fa64a71e145d3f636e02588e882dc64b77a6e",
+      "missing_contract_rows": 0,
+      "forward_and_contract_columns_present": true
+    }
+  },
+  "gate": {
+    "passed": false,
+    "reasons": [
+      "Missing exact mapping: data/adjusted_prices_csv/SP500.csv",
+      "Missing exact mapping: data/multiple_prices_csv/SP500.csv",
+      "Missing required USDGBP FX series for native GBP-base reference",
+      "Point-in-time individual-contract and roll/source provenance unverified",
+      "Stale beyond7-day gate: data/adjusted_prices_csv/CORN.csv",
+      "Stale beyond7-day gate: data/adjusted_prices_csv/SOFR.csv",
+      "Quality fault or unresolved gap: data/adjusted_prices_csv/SOFR.csv",
+      "Stale beyond7-day gate: data/adjusted_prices_csv/SP500_micro.csv",
+      "Quality fault or unresolved gap: data/adjusted_prices_csv/SP500_micro.csv",
+      "Stale beyond7-day gate: data/adjusted_prices_csv/US10.csv",
+      "Quality fault or unresolved gap: data/adjusted_prices_csv/US10.csv",
+      "Stale beyond7-day gate: data/multiple_prices_csv/CORN.csv",
+      "Stale beyond7-day gate: data/multiple_prices_csv/SOFR.csv",
+      "Quality fault or unresolved gap: data/multiple_prices_csv/SOFR.csv",
+      "Stale beyond7-day gate: data/multiple_prices_csv/SP500_micro.csv",
+      "Quality fault or unresolved gap: data/multiple_prices_csv/SP500_micro.csv",
+      "Stale beyond7-day gate: data/multiple_prices_csv/US10.csv",
+      "Quality fault or unresolved gap: data/multiple_prices_csv/US10.csv"
+    ],
+    "performance_calculated": false,
+    "historical_gate": {
+      "passed": false,
+      "reasons": [
+        "Missing exact mapping: data/adjusted_prices_csv/SP500.csv",
+        "Missing exact mapping: data/multiple_prices_csv/SP500.csv",
+        "Missing required USDGBP FX series for native GBP-base reference",
+        "Point-in-time individual-contract and roll/source provenance unverified",
+        "Quality fault or unresolved gap: data/adjusted_prices_csv/SOFR.csv",
+        "Quality fault or unresolved gap: data/adjusted_prices_csv/SP500_micro.csv",
+        "Quality fault or unresolved gap: data/adjusted_prices_csv/US10.csv",
+        "Quality fault or unresolved gap: data/multiple_prices_csv/SOFR.csv",
+        "Quality fault or unresolved gap: data/multiple_prices_csv/SP500_micro.csv",
+        "Quality fault or unresolved gap: data/multiple_prices_csv/US10.csv"
+      ]
+    },
+    "forward_freshness_gate": {
+      "passed": false,
+      "reasons": [
+        "Stale beyond7-day gate: data/adjusted_prices_csv/CORN.csv",
+        "Stale beyond7-day gate: data/adjusted_prices_csv/SOFR.csv",
+        "Stale beyond7-day gate: data/adjusted_prices_csv/SP500_micro.csv",
+        "Stale beyond7-day gate: data/adjusted_prices_csv/US10.csv",
+        "Stale beyond7-day gate: data/multiple_prices_csv/CORN.csv",
+        "Stale beyond7-day gate: data/multiple_prices_csv/SOFR.csv",
+        "Stale beyond7-day gate: data/multiple_prices_csv/SP500_micro.csv",
+        "Stale beyond7-day gate: data/multiple_prices_csv/US10.csv"
+      ]
+    }
+  },
+  "new_data_is_not_certified_unseen": true,
+  "prices_published": false,
+  "bounded_mapping_check": {
+    "source": "original pinned upstream bundled multiple-price files, postMES launch overlap only",
+    "aligned_valid_rows": 15587,
+    "equal_price_rows": 13379,
+    "equal_contract_label_rows": 15417,
+    "instrument_metadata": [
+      {
+        "Instrument": "SP500",
+        "Pointsize": 50.0,
+        "Currency": "USD"
+      },
+      {
+        "Instrument": "SP500_micro",
+        "Pointsize": 5.0,
+        "Currency": "USD"
+      }
+    ],
+    "conclusion": "Bundled price/contract overlap and native point sizes are checked. This does not authenticate the separate community provider or actual micro/full-size fills; automatic source substitution remains blocked."
+  }
+}

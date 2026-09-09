@@ -74,13 +74,20 @@ def terminal(ib,trade):
   while not trade.isDone() and time.monotonic()<deadline:ib.sleep(.25)
  return {'status':trade.orderStatus.status,'filled':trade.orderStatus.filled,'remaining':trade.orderStatus.remaining,'average_fill':trade.orderStatus.avgFillPrice,'terminal':trade.isDone()}
 
-def main(execute=False):
+def cycle_suffix(batch_id=None,cycle=None):
+ if batch_id is None and cycle is None:return ''
+ if not isinstance(batch_id,str) or not re.fullmatch(r'[a-z0-9-]{1,48}',batch_id):raise ValueError('Invalid bounded batch ID')
+ if type(cycle) is not int or not 1<=cycle<=10:raise ValueError('Cycle must be 1 through 10')
+ return '|batch='+batch_id+'|cycle='+str(cycle)
+
+def main(execute=False,batch_id=None,cycle=None):
+ suffix=cycle_suffix(batch_id,cycle)
  lock=(STATE/'run.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
  signal=build_signal();meta=json.loads((ROOT/'fetch_continuous.json').read_text())['contract']
  expiry=datetime.strptime(meta['lastTradeDateOrContractMonth'],'%Y%m%d').date()
  if (expiry-datetime.now(ZoneInfo('America/New_York')).date()).days<7:raise PaperGuardError('Contract too near expiry')
- key=hashlib.sha256((signal['data_date']+'|ewmac8-32_32-128|50000|10|MES|max1|v1').encode()).hexdigest()
- journal=Journal(STATE/'journal.sqlite3');result={'mode':'execute' if execute else 'prepare','signal':signal,'key':key,'orders':[],'errors':[],'delayed_fills_not_profitability_evidence':True}
+ key=hashlib.sha256((signal['data_date']+'|ewmac8-32_32-128|50000|10|MES|max1|v1'+suffix).encode()).hexdigest()
+ journal=Journal(STATE/'journal.sqlite3');result={'mode':'execute' if execute else 'prepare','batch_id':batch_id,'cycle':cycle,'started_at':datetime.now(ZoneInfo('UTC')).isoformat(),'signal':signal,'key':key,'orders':[],'errors':[],'delayed_fills_not_profitability_evidence':True}
  c=connectionIB(client_id=104);ib=c.ib;ib.RequestTimeout=20
  ib.errorEvent+=lambda req,code,msg,contract: result['errors'].append({'code':code,'message':msg})
  try:
@@ -131,9 +138,11 @@ def main(execute=False):
   return result
  finally:
   ib._bounded_paper_lease=None;c.close_connection()
-  filename='execution-result.json' if execute else 'preparation-result.json'
+  filename=('batch-'+batch_id+'-'+str(cycle)+'-'+str(time.time_ns())+'.json') if batch_id else ('execution-result.json' if execute else 'preparation-result.json')
   (ROOT/filename).write_text(scrub(result));journal.event(key,result)
   fcntl.flock(lock,fcntl.LOCK_UN);lock.close()
 if __name__=='__main__':
- result=main(execute='--execute' in sys.argv);print(scrub(result))
+ import argparse
+ parser=argparse.ArgumentParser();parser.add_argument('--execute',action='store_true');parser.add_argument('--batch-id');parser.add_argument('--cycle',type=int);args=parser.parse_args()
+ result=main(execute=args.execute,batch_id=args.batch_id,cycle=args.cycle);print(scrub(result))
  sys.exit(1 if 'failure' in result else 0)

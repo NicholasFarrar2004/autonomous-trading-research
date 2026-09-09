@@ -17,3 +17,6 @@ Two investigations share an evidence standard, not a combined trading strategy.
 - `project_paths.py` places data, private configuration, upstream checkouts and the journal under configurable local storage. Packaging changes are path/configuration changes, not strategy changes.
 
 The continuous PRICE denominator supports the selected EWMAC-only integration variant. It is not the native production multiple/adjusted/roll history pipeline and does not implement carry. No Mongo scheduler or perpetual execution service was deployed.
+
+
+`run_batch.py` coordinates at most ten sequential paper cycles using the real `operate.py` entry point in fresh processes. `test_batch.py` covers cycle bounds, original identity preservation, durable duplicate claims, abnormal outcomes, unfilled-order accounting and STOP behavior. The wrapper adds no alternative strategy or broker.

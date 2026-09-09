@@ -1,0 +1,454 @@
+{
+  "scope": "Ten additional paper round trips; repeated execution validation of one daily signal",
+  "started_at_utc": "2026-09-09T01:40:19.508972+00:00",
+  "finished_at_utc": "2026-09-09T01:47:41.486674+00:00",
+  "attempted_round_trips": 10,
+  "completed_round_trips": 10,
+  "filled_orders": 20,
+  "fresh_process_duplicate_checks": 10,
+  "duplicate_orders": 0,
+  "rejected_orders": 0,
+  "unfilled_orders": 0,
+  "packaged_offline_tests_passed": 28,
+  "gross_simulated_pnl_usd": -13.75,
+  "fees_usd": null,
+  "net_simulated_pnl_usd": null,
+  "stop_active": true,
+  "gateway_readonly_saved_and_reopened_verified": true,
+  "independent_verification": {
+    "independent_client": 105,
+    "server_time": "2026-09-09 01:48:11+00:00",
+    "nonzero_positions": 0,
+    "open_orders": 0,
+    "default_write_guard_blocks_before_broker": true,
+    "account_exactly_verified_by_connection": true
+  },
+  "cycles": [
+    {
+      "cycle": 1,
+      "started_at_utc": "2026-09-09T01:40:20.643026+00:00",
+      "combined_forecast": 6.758358092696901,
+      "orders": [
+        {
+          "phase": "entry",
+          "direction": 1,
+          "limit": 7705.5,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7686.25,
+          "terminal": true
+        },
+        {
+          "phase": "cleanup",
+          "direction": -1.0,
+          "limit": 7665.25,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7686.0,
+          "terminal": true
+        }
+      ],
+      "after_entry_reconnect": {
+        "position": 1.0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "final": {
+        "position": 0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "duplicate_new_orders": 0,
+      "delayed_market_data_type": 3,
+      "gross_simulated_pnl_usd": -1.25,
+      "fees_usd": null,
+      "net_simulated_pnl_usd": null
+    },
+    {
+      "cycle": 2,
+      "started_at_utc": "2026-09-09T01:41:05.082241+00:00",
+      "combined_forecast": 6.758358092696901,
+      "orders": [
+        {
+          "phase": "entry",
+          "direction": 1,
+          "limit": 7705.5,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7686.0,
+          "terminal": true
+        },
+        {
+          "phase": "cleanup",
+          "direction": -1.0,
+          "limit": 7665.25,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7685.5,
+          "terminal": true
+        }
+      ],
+      "after_entry_reconnect": {
+        "position": 1.0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "final": {
+        "position": 0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "duplicate_new_orders": 0,
+      "delayed_market_data_type": 3,
+      "gross_simulated_pnl_usd": -2.5,
+      "fees_usd": null,
+      "net_simulated_pnl_usd": null
+    },
+    {
+      "cycle": 3,
+      "started_at_utc": "2026-09-09T01:41:49.350785+00:00",
+      "combined_forecast": 6.758358092696901,
+      "orders": [
+        {
+          "phase": "entry",
+          "direction": 1,
+          "limit": 7705.0,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7685.0,
+          "terminal": true
+        },
+        {
+          "phase": "cleanup",
+          "direction": -1.0,
+          "limit": 7664.75,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7684.75,
+          "terminal": true
+        }
+      ],
+      "after_entry_reconnect": {
+        "position": 1.0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "final": {
+        "position": 0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "duplicate_new_orders": 0,
+      "delayed_market_data_type": 3,
+      "gross_simulated_pnl_usd": -1.25,
+      "fees_usd": null,
+      "net_simulated_pnl_usd": null
+    },
+    {
+      "cycle": 4,
+      "started_at_utc": "2026-09-09T01:42:33.292774+00:00",
+      "combined_forecast": 6.758358092696901,
+      "orders": [
+        {
+          "phase": "entry",
+          "direction": 1,
+          "limit": 7705.5,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7684.75,
+          "terminal": true
+        },
+        {
+          "phase": "cleanup",
+          "direction": -1.0,
+          "limit": 7665.25,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7684.75,
+          "terminal": true
+        }
+      ],
+      "after_entry_reconnect": {
+        "position": 1.0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "final": {
+        "position": 0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "duplicate_new_orders": 0,
+      "delayed_market_data_type": 3,
+      "gross_simulated_pnl_usd": 0.0,
+      "fees_usd": null,
+      "net_simulated_pnl_usd": null
+    },
+    {
+      "cycle": 5,
+      "started_at_utc": "2026-09-09T01:43:17.677532+00:00",
+      "combined_forecast": 6.758358092696901,
+      "orders": [
+        {
+          "phase": "entry",
+          "direction": 1,
+          "limit": 7706.5,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7685.25,
+          "terminal": true
+        },
+        {
+          "phase": "cleanup",
+          "direction": -1.0,
+          "limit": 7666.25,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7685.0,
+          "terminal": true
+        }
+      ],
+      "after_entry_reconnect": {
+        "position": 1.0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "final": {
+        "position": 0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "duplicate_new_orders": 0,
+      "delayed_market_data_type": 3,
+      "gross_simulated_pnl_usd": -1.25,
+      "fees_usd": null,
+      "net_simulated_pnl_usd": null
+    },
+    {
+      "cycle": 6,
+      "started_at_utc": "2026-09-09T01:44:02.142512+00:00",
+      "combined_forecast": 6.758358092696901,
+      "orders": [
+        {
+          "phase": "entry",
+          "direction": 1,
+          "limit": 7707.0,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7685.25,
+          "terminal": true
+        },
+        {
+          "phase": "cleanup",
+          "direction": -1.0,
+          "limit": 7666.5,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7685.0,
+          "terminal": true
+        }
+      ],
+      "after_entry_reconnect": {
+        "position": 1.0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "final": {
+        "position": 0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "duplicate_new_orders": 0,
+      "delayed_market_data_type": 3,
+      "gross_simulated_pnl_usd": -1.25,
+      "fees_usd": null,
+      "net_simulated_pnl_usd": null
+    },
+    {
+      "cycle": 7,
+      "started_at_utc": "2026-09-09T01:44:46.315783+00:00",
+      "combined_forecast": 6.758358092696901,
+      "orders": [
+        {
+          "phase": "entry",
+          "direction": 1,
+          "limit": 7706.75,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7685.0,
+          "terminal": true
+        },
+        {
+          "phase": "cleanup",
+          "direction": -1.0,
+          "limit": 7666.75,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7685.0,
+          "terminal": true
+        }
+      ],
+      "after_entry_reconnect": {
+        "position": 1.0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "final": {
+        "position": 0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "duplicate_new_orders": 0,
+      "delayed_market_data_type": 3,
+      "gross_simulated_pnl_usd": 0.0,
+      "fees_usd": null,
+      "net_simulated_pnl_usd": null
+    },
+    {
+      "cycle": 8,
+      "started_at_utc": "2026-09-09T01:45:30.403509+00:00",
+      "combined_forecast": 6.758358092696901,
+      "orders": [
+        {
+          "phase": "entry",
+          "direction": 1,
+          "limit": 7707.5,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7686.5,
+          "terminal": true
+        },
+        {
+          "phase": "cleanup",
+          "direction": -1.0,
+          "limit": 7667.5,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7686.25,
+          "terminal": true
+        }
+      ],
+      "after_entry_reconnect": {
+        "position": 1.0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "final": {
+        "position": 0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "duplicate_new_orders": 0,
+      "delayed_market_data_type": 3,
+      "gross_simulated_pnl_usd": -1.25,
+      "fees_usd": null,
+      "net_simulated_pnl_usd": null
+    },
+    {
+      "cycle": 9,
+      "started_at_utc": "2026-09-09T01:46:14.283761+00:00",
+      "combined_forecast": 6.758358092696901,
+      "orders": [
+        {
+          "phase": "entry",
+          "direction": 1,
+          "limit": 7708.0,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7687.0,
+          "terminal": true
+        },
+        {
+          "phase": "cleanup",
+          "direction": -1.0,
+          "limit": 7667.5,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7686.75,
+          "terminal": true
+        }
+      ],
+      "after_entry_reconnect": {
+        "position": 1.0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "final": {
+        "position": 0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "duplicate_new_orders": 0,
+      "delayed_market_data_type": 3,
+      "gross_simulated_pnl_usd": -1.25,
+      "fees_usd": null,
+      "net_simulated_pnl_usd": null
+    },
+    {
+      "cycle": 10,
+      "started_at_utc": "2026-09-09T01:46:58.551584+00:00",
+      "combined_forecast": 6.758358092696901,
+      "orders": [
+        {
+          "phase": "entry",
+          "direction": 1,
+          "limit": 7707.25,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7686.75,
+          "terminal": true
+        },
+        {
+          "phase": "cleanup",
+          "direction": -1.0,
+          "limit": 7666.75,
+          "status": "Filled",
+          "filled": 1.0,
+          "remaining": 0.0,
+          "average_fill": 7686.0,
+          "terminal": true
+        }
+      ],
+      "after_entry_reconnect": {
+        "position": 1.0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "final": {
+        "position": 0,
+        "unrelated_positions": 0,
+        "open_orders": 0
+      },
+      "duplicate_new_orders": 0,
+      "delayed_market_data_type": 3,
+      "gross_simulated_pnl_usd": -3.75,
+      "fees_usd": null,
+      "net_simulated_pnl_usd": null
+    }
+  ],
+  "limitations": [
+    "Delayed paper fills do not establish live execution quality",
+    "Repeated same daily signal, not independent trading opportunities",
+    "Commission fields lacked currency; fees and net P&L unknown",
+    "No profitability or production-readiness conclusion"
+  ]
+}

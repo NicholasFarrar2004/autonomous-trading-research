@@ -21,3 +21,12 @@ The coordinator uses IOC limit orders, at most one contract for entry and one re
 Creating `PAPER_PROJECT_HOME/paper/operation/STOP` blocks new entry while allowing reducing cleanup. Do not kill a process blindly while broker state is uncertain. An ambiguous submission is never retried as a fresh entry. Reconcile broker positions, open orders, executions and the existing journal first; preserve the claim and intent records. An unresolved cleanup or nonflat state requires operator attention, not deletion of the journal or a new run key.
 
 After the finite run, verify flat positions and no open orders with `verify_exit.py`, restore and save Gateway Read-Only API, and recreate STOP. Independent verification and explicit cleanup are required before reporting a clean exit. Shutdown and recovery during an actual pending-network failure remain unproven; this is not a production unattended service.
+
+
+## Bounded multi-cycle execution check
+
+`run_batch.py --batch-id <unique-lowercase-id> --cycles 10` prints a plan without broker execution. Add `--execute` only for a deliberately authorized paper batch after the preparation gates above. Maximum cycle count is ten. Every cycle invokes the actual coordinator in a separate process, reconnects to reconcile, then invokes the same cycle identity again to check that no new entry appears. A batch is an execution test of the same native signal, not ten independent opportunities.
+
+The original single-run identity remains unchanged. Batch and cycle identifiers create separate journal identities for this explicit scope; never change an identifier to evade an unresolved intent. IOC orders may remain unfilled. Terminal cancellation counts as an attempted cycle, not a completed round trip. Unexpected broker errors, rejection, nonflat state or duplicate orders stop the batch. STOP is restored at exit; Gateway read-only restoration and independent final verification remain operator responsibilities.
+
+Per-cycle reports use distinct filenames. Preserve completed batch summaries and the journal before any later work. The wrapper does not prove abrupt process-kill, pending-transmission or Gateway-restart recovery.

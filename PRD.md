@@ -33,3 +33,8 @@ The paper settings of USD 50,000 simulated notional, a 10% annual volatility tar
 ## Open questions
 
 Production adjusted and multiple-contract histories; longer out-of-sample and forward evaluation; realistic execution costs; attributable operating costs; abrupt order-transmission and Gateway-restart recovery; live eligibility and appropriate future scope. None is resolved by the single paper exercise.
+
+
+## Expanded execution-test scope
+
+A later authorized phase makes the sanitized repository public and runs up to ten additional paper round trips, at most twenty fills, with unchanged strategy/data/risk limits. Distinct batch/cycle identities preserve the original claim and support duplicate verification after every cycle. Record actual attempts, fills, cancellations, errors, reconnect positions and final state. Do not force fills or treat repeated signal execution as independent strategy evidence. Restore STOP and Gateway read-only after the finite batch.

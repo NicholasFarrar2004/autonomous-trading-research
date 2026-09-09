@@ -16,7 +16,7 @@ No dependency installation, account or network connection is required.
 export PAPER_PROJECT_HOME="$HOME/.local/share/autonomous-trading-research"
 python3.12 bootstrap.py pysystemtrade --install
 export PYTHONPATH="$PAPER_PROJECT_HOME/upstream/pysystemtrade"
-"$PAPER_PROJECT_HOME/venv-pysystemtrade/bin/python" -m unittest test_guards test_operation
+"$PAPER_PROJECT_HOME/venv-pysystemtrade/bin/python" -m unittest test_guards test_operation test_batch
 ```
 
 Bootstrap checks the exact source revision, applies the reviewed connection patch and installs the guard. It preserves an existing mismatched checkout. Dependency files contain version pins, not downloaded package hashes; registry availability and platform compatibility still matter. Bootstrap never starts Gateway or a strategy.

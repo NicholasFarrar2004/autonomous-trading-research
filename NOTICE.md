@@ -6,4 +6,4 @@ Passivbot is maintained by its upstream contributors at https://github.com/enarj
 
 `upstreams.json` records both immutable source revisions. Bootstrap obtains those repositories separately. No upstream authorship is claimed for the engines, native strategies or adapters. Dependency packages retain their own licenses; dependency snapshots do not relicense them.
 
-The new coordination scripts, research synthesis and documentation were prepared with AI assistance. This private project upload does not assign a new blanket open-source license to original material. Existing third-party licenses continue to apply. Review licensing before wider redistribution or public release.
+The new coordination scripts, research synthesis and documentation were prepared with AI assistance. This repository does not assign a new blanket open-source license to original material. Existing third-party licenses continue to apply. Review licensing before wider redistribution or public release.

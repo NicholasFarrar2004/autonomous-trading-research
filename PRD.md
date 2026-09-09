@@ -1,3 +1,7 @@
+# Current phase: frozen strategy evaluation
+
+2026-09-09: User authorized continuation of historical evaluation, genuine rule-driven forward paper preparation, recovery checks and sanitized publication. See [frozen protocol](VALIDATION_PROTOCOL.md). Earlier forced round-trip scope below is historical. This phase does not authorize real trades or an indefinite process.
+
 # Project specification
 
 ## Problem

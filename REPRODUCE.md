@@ -16,7 +16,7 @@ No dependency installation, account or network connection is required.
 export PAPER_PROJECT_HOME="$HOME/.local/share/autonomous-trading-research"
 python3.12 bootstrap.py pysystemtrade --install
 export PYTHONPATH="$PAPER_PROJECT_HOME/upstream/pysystemtrade"
-"$PAPER_PROJECT_HOME/venv-pysystemtrade/bin/python" -m unittest test_guards test_operation test_batch
+"$PAPER_PROJECT_HOME/venv-pysystemtrade/bin/python" -m unittest test_guards test_operation test_batch test_validation
 ```
 
 Bootstrap checks the exact source revision, applies the reviewed connection patch and installs the guard. It preserves an existing mismatched checkout. Dependency files contain version pins, not downloaded package hashes; registry availability and platform compatibility still matter. Bootstrap never starts Gateway or a strategy.
@@ -38,3 +38,5 @@ Install the upstream-pinned Rust toolchain before building. Follow upstream buil
 Use the original config `configs/fake_live_hsl_btc.hjson` and scenarios under `scenarios/fake_live/`, with a fresh fake user and output directory. Example arguments to `src/tools/run_fake_live.py` are `configs/fake_live_hsl_btc.hjson scenarios/fake_live/hsl_long_red_restart.hjson --user reproduction_restart --snapshot-each-step --output-dir /tmp/passivbot-reproduction`. Never reuse a directory holding evidence you intend to preserve.
 
 No broker exercise is part of these reproduction commands. See OPERATIONS.md for the separate, deliberately gated paper workflow.
+
+Frozen economic evaluation and shadow observation commands are in [STRATEGY_VALIDATION.md](STRATEGY_VALIDATION.md). The candidate failed the exploratory evaluation; no writer or scheduler is deployed.

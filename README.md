@@ -20,7 +20,7 @@ The completed paper exercise generated an EWMAC signal, bought one simulated MES
 ## Verified paper sequence
 
 ```mermaid
-flowchart LR
+flowchart TD
  A[251 daily bars] --> B[Native EWMAC signal]
  B --> C[One-contract paper entry]
  C --> D[Reconnect: position +1]
